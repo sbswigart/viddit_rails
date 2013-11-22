@@ -1,6 +1,7 @@
 Viddit::Application.routes.draw do
   root to: 'static_pages#home'
   resources :users
+  resources :videos, only: [:new, :create, :destroy]
   resources :sessions, only: [:create, :destroy]
   match '/signout', to: 'sessions#destroy', via: 'delete'
   # The priority is based upon order of creation: first created -> highest priority.
