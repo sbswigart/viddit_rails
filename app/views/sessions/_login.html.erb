@@ -1,0 +1,9 @@
+<div role="form"
+	<p>Login</p>
+	<%= form_for(:session, url: sessions_path) do |f| %>
+		<%= f.text_field :email, placeholder: "email", class: "form-control" %>
+		<%= f.password_field :password, placeholder: "password", class: "form-control" %>
+
+		<%= f.submit "Create Account", class: "btn btn-large btn-primary" %>
+	<% end %>
+</div>
