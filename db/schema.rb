@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131121225231) do
+ActiveRecord::Schema.define(version: 20131122042208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,5 +25,24 @@ ActiveRecord::Schema.define(version: 20131121225231) do
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+
+  create_table "videos", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider_name"
+    t.string   "type"
+    t.string   "thumbnail_width"
+    t.string   "author_url"
+    t.string   "html"
+    t.string   "provider_url"
+    t.string   "version"
+    t.string   "thumbnail_height"
+    t.string   "title"
+    t.string   "author_name"
+    t.string   "height"
+    t.string   "width"
+    t.string   "thumbnail_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
