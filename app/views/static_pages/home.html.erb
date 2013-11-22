@@ -1,7 +1,8 @@
 <div class="col-sm-9">
 	<h1>Video Content</h1>
-	<p>Videos will go here</p>
-	<p>and here...</p>
+	<% @videos.each do |video| %>
+		<%= raw(video.html) %>
+	<% end %>
 </div>
 <% if signed_in? %>
 	<p><%= "Welcome, #{ current_user.email } ,you're signed in" %></p>
