@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		@user.password_confirmation = @user.password
 		if @user.save
+			sign_in @user
 			redirect_to root_url
 		else
 			render 'static_pages/home'
