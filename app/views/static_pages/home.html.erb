@@ -1,8 +1,15 @@
-<div class="col-sm-9">
+<div class="col-sm-12">
 	<h1>Video Content</h1>
+	<div id="container">
 	<% @videos.each do |video| %>
-		<%= raw(video.html) %>
+	  <div class="item crop">
+	  	<div class="crop">
+			<%= image_tag "#{raw(video.thumbnail_url)}" %>
+		</div>
+		</div>
 	<% end %>
+
+</div>
 </div>
 <% if signed_in? %>
 	<p><%= "Welcome, #{ current_user.email } ,you're signed in" %></p>
@@ -13,3 +20,12 @@
 	<%= render "sessions/login" %>
 	</div>
 <% end %>
+
+<script type="text/javascript">
+	var container = document.querySelector('#container');
+	var msnry = new Masonry( container, {
+  // options
+  columnWidth: 300,
+  itemSelector: '.item'
+	});
+</script>
