@@ -2,11 +2,10 @@ class StaticPagesController < ApplicationController
 
 	def home
 		#index page
-		 @videos = Video.all
-		 if signed_in?
-		 	@video = current_user.videos.build
-		 else
-			@user = User.new
-		 end
+		@videos = Video.all
+		@user = User.new
+		if signed_in?
+	 		@video_new = current_user.videos.build
+	 	end
 	end
 end
