@@ -1,8 +1,18 @@
 <header class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <a href="#" class="navbar-brand">Viddit</a>
+    <%= link_to "Viddit", root_url, class: "navbar-brand" %>
   </div>
   <% if signed_in? %>
     <%= render 'shared/video_form' %>
+  <% else %>
+  	<button class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
+  	  Sign In | Log In
+	  </button>
   <% end %>
 </header>
+<%= render 'shared/signin_login' %>
+<script type="text/javascript">
+	$("button").click(function(){
+		$('#myModal').modal("show")
+	})
+</script>
