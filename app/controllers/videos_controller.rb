@@ -18,6 +18,14 @@ class VideosController < ApplicationController
 	def destroy
 	end
 
+	def show
+		@user = User.new
+		@video = Video.find(params[:id])
+		if signed_in?
+			@video_new = current_user.videos.build
+		end
+	end
+
 	private
 
 	def video_param
