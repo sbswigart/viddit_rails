@@ -2,10 +2,13 @@
 	<h1>Video Content</h1>
 	<div id="container">
 	<% @videos.each do |video| %>
-	  <div class="item crop">
+	  <div class="item crop image">
 	  	<div class="crop">
-			<%= image_tag "#{raw(video.thumbnail_url)}" %>
-		</div>
+				<%= image_tag "#{raw(video.thumbnail_url)}" %>
+			</div>
+			<%= link_to video do %>
+	  		<h2 class="text"><%= "#{video.title.upcase}" %></h2>
+	  	<% end %>
 		</div>
 	<% end %>
 
@@ -15,10 +18,7 @@
 	<p><%= "Welcome, #{ current_user.email } ,you're signed in" %></p>
 	<%= link_to "Sign out", signout_path, method: "delete" %>
 <% else %>
-	<div class="col-sm-3">
-	<%= render "users/signin" %>
-	<%= render "sessions/login" %>
-	</div>
+
 <% end %>
 
 <script type="text/javascript">
