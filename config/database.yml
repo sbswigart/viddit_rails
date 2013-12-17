@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: viddit_development
-  pool: 5
+  pool: 25
 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,11 +46,11 @@ test:
   adapter: postgresql
   encoding: unicode
   database: viddit_test
-  pool: 5
+  pool: 25
 
 production:
   adapter: postgresql
   encoding: unicode
   database: viddit_production
-  pool: 5
+  pool: 25
 
