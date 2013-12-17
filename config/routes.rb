@@ -1,6 +1,7 @@
 Viddit::Application.routes.draw do
   root to: 'static_pages#home'
   resources :users
+  resources :justin_stats, only: :index
   resources :videos, only: [:new, :create, :destroy, :show]
   resources :sessions, only: [:create, :destroy]
   match '/signout', to: 'sessions#destroy', via: 'delete'
