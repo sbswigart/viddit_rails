@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'unicorn'
 gem 'sidekiq'
 gem 'sidetiq'
+gem 'will_paginate'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
