@@ -1,0 +1,37 @@
+<h1>Stats</h1>
+
+<%= content_tag(:div, '', id: 'stat_chart', data: {stats: @stats}).html_safe %>
+
+<table id="stats">
+  <tr>
+    <th>ID</th>
+    <th>Date/Time</th>
+    <th>Viewers Count</th>
+    <th>Streams Count</th>
+  </tr>
+  <% @stats.each do |stat| %>
+    <tr>
+      <td><%= stat.id %></td>
+      <td><%= stat.created_at.strftime("%B %e, %Y %H:%M") %></td>
+      <td><%= stat.viewers_count %></td>
+      <td><%= stat.streams_count %></td>
+    </tr>
+  <% end %>
+</table>
+
+<script>
+	new Morris.Line({
+  // ID of the element in which to draw the chart.
+  element: 'stat_chart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: $('#stat_chart').data('stats'),
+  // The name of the data record attribute that contains x-values.
+  xkey: 'created_at',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['viewers_count'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
+});
+</script>
