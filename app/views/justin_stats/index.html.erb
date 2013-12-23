@@ -2,6 +2,10 @@
 
 <%= content_tag(:div, '', id: 'stat_chart', data: {stats: @stats}).html_safe %>
 
+<%= link_to "Last Hour", justin_stats_path(interval: "minutely"), class: "btn btn-default" %>
+<%= link_to "Last Day in Hours", justin_stats_path(interval: "hourly"), class: "btn btn-default" %>
+<%= link_to "Last Week in Days", justin_stats_path(interval: "daily"), class: "btn btn-default" %>
+
 <table id="stats">
   <tr>
     <th>ID</th>
